@@ -25,6 +25,8 @@ campo_f = sheet.cell_value(l1, cf)
 
 while linhas > 0:
     print(f"'{campo_a}','{campo_b}','{campo_c}','{campo_e}','{campo_f}'")
+    print(f'linhas: {linhas}')
+    print(f'l1: {l1}')
     linhas -= 1
     l1 += 1
     campo_a = sheet.cell_value(l1, ca)
