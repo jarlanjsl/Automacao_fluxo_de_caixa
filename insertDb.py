@@ -32,7 +32,6 @@ def create_empresas(conn, empresas):
     return cur.lastrowid
 
 
-
 def main():
     database = r"pythonsqlite.db"
 
@@ -40,7 +39,7 @@ def main():
     conn = create_connection(database)
     with conn:
         # create a new empresas
-        empresas = ('19','JSL','A');
+        empresas = ('19', 'JSL', 'A')
         create_empresas(conn, empresas)
 
 

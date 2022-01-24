@@ -28,8 +28,8 @@ values2 = f"'{a2}','{b2}','{c2}','{e2}','{f2}'"
 values3 = f"'{a3}','{b3}','{c3}','{e3}','{f3}'"
 
 
-#print(values2)
-#print(values3)
+# print(values2)
+# print(values3)
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database
@@ -69,10 +69,9 @@ def main():
     with conn:
         # create a new empresas
         print(values3)
-        empresas = (f'{a3}',f'{b3}',f'{c3}',f'{e3}',f'{f3}');
+        empresas = (f'{a3}', f'{b3}', f'{c3}', f'{e3}', f'{f3}')
         create_empresas(conn, empresas)
 
 
 if __name__ == '__main__':
     main()
-

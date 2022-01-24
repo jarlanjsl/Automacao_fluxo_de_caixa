@@ -36,7 +36,7 @@ def select_empresas_ativas(conn, status):
     """
     Query tasks by priority
     :param conn: the Connection object
-    :param priority:
+    :param status:
     :return:
     """
     cur = conn.cursor()
