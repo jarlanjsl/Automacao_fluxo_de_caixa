@@ -46,7 +46,8 @@ sheet = wb.sheet_by_index(0)
 sheet.cell_value(0, 0)
 
 # Extraindo número de linhas
-linhas = sheet.nrows - 1
+# Linhas - 3 para tirar o cabeçalho, linha de espaçamento e linha final que contém um espaço
+linhas = sheet.nrows - 3
 print(f'Numero de linhas: {linhas}')
 
 # Vericando implementação de celula

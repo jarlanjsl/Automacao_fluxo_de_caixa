@@ -8,10 +8,14 @@ sheet.cell_value(0, 0)
 
 # Extraindo número de linhas
 linhas = sheet.nrows - 1
-print(f'Numero de linhas: {linhas}')
+print(f'Numero de linhas na planilha: {linhas}')
 
 # Vericando implementação de celula
-l1 = 1
+"""
+l: linhas
+c: colunas
+"""
+l1 = 0
 ca = 0
 cb = 1
 cc = 2
@@ -24,9 +28,9 @@ campo_e = sheet.cell_value(l1, ce)
 campo_f = sheet.cell_value(l1, cf)
 
 while linhas > 0:
-    print(f"'{campo_a}','{campo_b}','{campo_c}','{campo_e}','{campo_f}'")
-    print(f'linhas: {linhas}')
-    print(f'l1: {l1}')
+    print(f'Linhas restantes: {linhas - 1}')
+    print(f'Linha atual: {l1}')
+    print(f"Linha {l1} = '{campo_a}','{campo_b}','{campo_c}','{campo_e}','{campo_f}'")
     linhas -= 1
     l1 += 1
     campo_a = sheet.cell_value(l1, ca)
