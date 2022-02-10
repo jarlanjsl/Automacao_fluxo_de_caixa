@@ -24,8 +24,8 @@ def create_empresas(conn, empresas):
     :param empresas:
     :return:
     """
-    sql = ''' INSERT INTO empresas(id_empresa,descricao,status)
-              VALUES(?,?,?) '''
+    sql = ''' INSERT INTO empresas(id_empresa,descricao,usuario_criador,dt_criacao,status)
+                  VALUES(?,?,?,?,?) '''
     cur = conn.cursor()
     cur.execute(sql, empresas)
     conn.commit()
@@ -39,7 +39,7 @@ def main():
     conn = create_connection(database)
     with conn:
         # create a new empresas
-        empresas = ('19', 'JSL', 'A')
+        empresas = ('19.0', 'ADRTUPPWR', 'dbr00002', '2022-01-22', 'E')
         create_empresas(conn, empresas)
 
 
