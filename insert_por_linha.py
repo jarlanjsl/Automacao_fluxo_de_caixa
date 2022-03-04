@@ -32,7 +32,7 @@ def create_empresas(conn, empresas):
     :return:
     """
     sql = ''' INSERT INTO movimentacao(id_mov, id_empresa, descricao, id_conta, id_fornecedor, dt_documento, dt_vencimento, valor_orcado, usuario_criador, status)
-              VALUES(?,?,?,?,?,?,?,?,?,?) '''
+              VALUES(((SELECT CAST((SELECT MAX(ID_MOV) FROM movimentacao) AS int)) + 1),?,?,?,?,?,?,?,?,?) '''
     cur = conn.cursor()
     cur.execute(sql, empresas)
     conn.commit()
@@ -75,10 +75,9 @@ campo_n = sheet.cell_value(l1, cn)
 
 while linhas > 0:
     print(
-        f"Linha {l1} = '{campo_a}','{campo_b}','{campo_c}','{campo_d}','{campo_f}','{campo_h}','{campo_j}','{campo_k},'{campo_m},'{campo_n}'")
+        f"Linha {l1} = '{campo_b}','{campo_c}','{campo_d}','{campo_f}','{campo_h}','{campo_j}','{campo_k},'{campo_m},'{campo_n}'")
     linhas -= 1
     l1 += 1
-    campo_a = sheet.cell_value(l1, ca)
     campo_b = sheet.cell_value(l1, cb)
     campo_c = sheet.cell_value(l1, cc)
     campo_d = sheet.cell_value(l1, cd)
@@ -97,7 +96,7 @@ while linhas > 0:
         conn = create_connection(database)
         with conn:
             # create a new empresas
-            empresas = (campo_a, campo_b, campo_c, campo_d, campo_f, campo_h, campo_j, campo_k, campo_m, campo_n)
+            empresas = (campo_b, campo_c, campo_d, campo_f, campo_h, campo_j, campo_k, campo_m, campo_n)
             create_empresas(conn, empresas)
 
 
